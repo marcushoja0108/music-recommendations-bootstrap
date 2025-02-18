@@ -1,11 +1,14 @@
 <template>
-  <div class="p-5">
+  <div class="p-5 bg-info-subtle" style="height: 100vh;">
     <h1 class="title text-center pb-3">Listen here</h1>
     <SongRecommendation :songs='songs'/>
 
     <div class="container-lg text-center">
       <button v-if="!editing" class="btn btn-success" @click="editing = true">Add new song</button>
-      <button v-else @click="editing=false" class="btn btn-danger">Cancel</button>
+      <div v-else>
+        <button class="btn btn-success m-2" @click="addSong">Add song</button>
+        <button @click="editing=false" class="btn btn-danger m-2">Cancel</button>
+      </div>
       <div v-if="editing">
         <form class="row my-2 justify-content-center">
           <div class="col-sm-7 my-2">
@@ -35,7 +38,7 @@
             </div>
           </div>
         </form>
-        <button class="btn btn-success" @click="addSong">Add song</button>
+        
       </div>
     </div>
 </div>

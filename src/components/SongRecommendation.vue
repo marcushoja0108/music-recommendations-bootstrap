@@ -1,16 +1,15 @@
 <template>
   <div class="justify-content-center text-center">
-    <button class="btn btn-warning btn-lg p-3 my-3 fs-4" 
+    <button type="button" class="btn btn-warning btn-lg p-3 my-3 fs-4" 
     @click="recommendSong">Get recommendation</button>
     <div v-if="recommendation">
       <div class="mb-3 d-flex justify-content-center"  >
         <div class="d-flex justify-content-center col-12 col-lg-8">
-          <div class="card col-6 justify-content-center">
+          <div class="card col-6 justify-content-center bg-dark">
             <img class="card-img-top img-fluid" :src="recommendation.img">
             <div class="card-body">
-              <h2>{{ recommendation.title }}</h2>
-              <h3>Artist: {{ recommendation.artist }}</h3>
-
+              <h2 class="text-info">{{ recommendation.title }}</h2>
+              <h3 class="lead text-info">Artist: {{ recommendation.artist }}</h3>
               <div class="card-img-overlay d-flex justify-content-end">
                 <div type="button" @click="recommendation.isFavorite = !recommendation.isFavorite">
                   <img v-if="recommendation.isFavorite" src="trueStar.png" class="img-fluid" style="height: 40px; width: 40px;">
@@ -45,7 +44,7 @@
 </div>
 
       
-    <div v-else>Thinking....</div>
+    <div v-else class="lead m-3">Thinking....</div>
   </div>
 </template>
 
